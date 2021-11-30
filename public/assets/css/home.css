@@ -1,0 +1,195 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*########### content ########### */
+.content {
+  width: 60%;
+  min-width: 300px;
+  max-width: 700px;
+  margin: 15px auto;
+  margin-top: 85px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+}
+
+#ext-opt {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 70px;
+}
+/*############ side bar #############*/
+.side-bar h2, .side-bar h3 {
+  margin: 15px 5px;
+  font-weight: 700;
+}
+
+.side-bar ul li {
+  list-style-type: none;
+  margin-left: 5px;
+}
+
+.side-bar {
+  color: rgb(66, 70, 77);
+  background: #77C2DA;
+  width: 160px;
+  height: 29rem;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 10px;
+  
+  grid-column: 1;
+
+  animation: side-bar-appear 200ms ease-out 1;
+}
+
+/*############ pager #############*/
+#pager-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-pager {
+  background: #b5edff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
+  font-size: 0.9rem;
+  color: rgb(66, 70, 77);
+  margin: 4px;
+  animation: pager-appear 200ms ease-in 1;
+}
+
+.btn-pager:hover {
+  background: #23acda;
+  color: white;
+}
+
+.active {
+  opacity: 0.5;
+}
+
+/*########## list of devs ##########*/
+.list-dev{
+  grid-column: 2;
+  width: 90%;
+  min-width: 300px;
+}
+
+.ul-p {
+  list-style: none;
+  margin: 0;
+  margin-top: -9px;
+}
+
+.list-item > div, .list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item {
+  height: 60px;
+  margin: 10px 0;
+  background: #b5edff;
+  color: rgb(66, 70, 77);
+  border-radius: 6px;
+  padding: 3px;
+  margin-right: auto;
+  cursor: pointer;
+
+  flex-direction: column;
+}
+
+#inner-li-name {
+ font-size: 14px;
+ font-weight: bold;
+ text-transform: capitalize;
+}
+
+#inner-li-sr, #inner-li-st {
+ font-size: 14px;
+}
+
+#inner-li-st {
+  color: rgb(97, 103, 110);
+}
+
+.msg{
+  margin-top: 25px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+
+@media (max-width: 950px) {
+  .list-item > div {
+    flex-direction: column;
+  }
+  #inner-li-sr, #inner-li-st {
+    font-size: 12px;
+  }
+}
+@media (max-width: 650px){
+  .list-item > div {
+    flex-direction: row;
+  }
+  .content {
+    width: 60%;
+    display: block;
+  }
+  .list-dev {
+    width: 100%;
+  }
+  .side-bar, #img-name {
+    display: none;
+  }
+  .side-bar {
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    z-index: 3;
+
+    padding: 20px;
+    color: white;
+    background: #008AB6;
+    border-radius: 0 0 6px 0;
+  }
+  .showUp{
+    display: flex;
+  }
+}
+@media (max-width: 550px) {
+  .content {
+    width: 90%;
+  }
+}
+@media (max-width: 370px){
+  .list-item > div {
+    flex-direction: column;
+  }
+}
+
+/*############# animations #############*/
+@keyframes list-appear {
+  0%{
+      opacity: 0;
+      transform: translatex(25px);
+  }}
+
+@keyframes side-bar-appear {
+  0%{
+      opacity: 0;
+      transform: translatex(-25px);
+  }}
+
+@keyframes pager-appear {
+  0%{
+      opacity: 0;
+      transform: translatey(-20px);
+  }}

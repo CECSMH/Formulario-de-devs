@@ -1,0 +1,83 @@
+<%- include('includes/head') %>
+    <link rel="stylesheet" href="/assets/css/reg.css">
+    <section class="container">
+        <div class="content">
+            <form class="regForm" autocomplete="off">
+                <label for="name" id="nt" class="title sc">Nome completo </label>
+                <input type="text" class="it" name="fullName" id="name" value="<%= user ? user.fullName : '' %>" >
+
+                <label for="email" id="et" class="title sc">Email </label>
+                <input type="email" class="it" name="email" id="email" value="<%= user ? user.email : '' %>">
+
+                <fieldset>
+                    <label id="dsl" class="title">De que lado você desenvolve?</label><br>
+                    <label>
+                        <input class="ds" value="Front-end" <%= user.devSide && (user.devSide === 'Front-end' ? 'checked="true"': '') %>  type="radio" name="devSide">Front-end
+                    </label><br>
+                    <label>
+                        <input class="ds" value="Back-end" <%= user.devSide && (user.devSide === 'Back-end' ? 'checked="true"': '') %> type="radio" name="devSide">Back-end
+                    </label><br>
+                    <label>
+                        <input class="ds" value="Full-stack" <%= user.devSide && (user.devSide === 'Full-stack' ? 'checked="true"': '') %> type="radio" name="devSide">Full-stack
+                    </label><br>
+                </fieldset>
+
+                <fieldset>
+                    <label for="sry" id="srt" class="title sc">Senioridade: </label><br>
+
+                    <select class="sr" name="seniority" id="sry">
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="Junior" <%= user.seniority && (user.seniority === 'Junior' ? 'selected': '') %>>Júnior</option>
+                        <option value="Pleno" <%= user.seniority && (user.seniority === 'Pleno' ? 'selected': '') %>>Pleno</option>
+                        <option value="Senior" <%= user.seniority && (user.seniority === 'Senior' ? 'selected': '') %>>Sênior</option>
+                    </select>
+
+                </fieldset>
+
+                <Fieldset>
+                    <label class="title sc" id="stt">Selecione as Stacks que utiliza <br></label><br>
+
+                    <input class="st" value="HTML" <%= user.stacks && (user.stacks.indexOf("HTML") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">HTML</input>
+
+                    <input class="st" value="CSS" <%= user.stacks && (user.stacks.indexOf("CSS") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">CSS</input>
+
+                    <input class="st" value="JavaScript" <%= user.stacks && (user.stacks.indexOf("JavaScript") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">JavaScript</input>
+
+                    <input class="st" value="PHP" <%= user.stacks && (user.stacks.indexOf("PHP") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">PHP</input>
+
+                    <input class="st" value="Java" <%= user.stacks && (user.stacks.indexOf("Java") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">Java</input>
+
+                    <input class="st" value="C" <%= user.stacks && (user.stacks.indexOf("C") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">C#</input>
+
+                    <input class="st" value="Python" <%= user.stacks && (user.stacks.indexOf("Python") !== -1 ? 'checked="true"': '') %> name="stacks" type="checkbox">Python</input>
+
+                </Fieldset>
+
+                <label for="xp" id="xpt" class="title sc">Conte um pouco mais sobre sua experiência <br></label>
+                <textarea name="experience" id="xp" class="it" rows="5"><%= user ? user.experience : '' %></textarea>
+
+                <fieldset class="pass-field">
+
+                    <label class="title" id="pst1"><%= user._id ? 'Alterar senha?': 'Criar uma senha' %> <br> 
+                        <input <%= user._id ? 'placeholder=Opcional': '' %> class="it" type=<%= user._id ? 'text': 'password' %> name="p1"><br>
+                    </label>
+
+                    <label class="title" id="pst2">Confirmar senha<br> 
+                        <input  class="it" type=<%= user._id ? 'text': 'password' %> name="p2"><br>
+                    </label>
+
+                </fieldset>
+
+                <% if (user._id) { %>
+                    <span class="advice">Aviso: campos vazios serão ignorados!</span>
+                <% } %>
+
+                <button type="submit">Salvar</button>
+                <% if (user._id) { %>
+                    <button id='del'>apagar</button>
+                <% } %>
+            </form>
+        </div>
+    </section>
+    <div class="modal"></div>
+    <%- include('includes/footer') %>

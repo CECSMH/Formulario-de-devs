@@ -1,0 +1,101 @@
+<%- include('includes/head') %>
+<link rel="stylesheet" href="/assets/css/home.css">
+
+<header id="header">
+
+<button class="m-btn" id="filter"><img src="/assets/img/filter.png" alt="filter" id="filter"></button>
+
+    <% if (user) { %>
+        <div id="img-name">
+            <img 
+                id=<%= user._id %>
+                class="circle" 
+                src="/assets/img/circle.png" 
+                alt=<%= user.fullName.split(' ')[0] %> 
+            >
+            <span>
+                <%= user.fullName.split(' ')[0].substring(0, 1); %> 
+            </span>
+        </div>
+
+    <% } else { %>
+
+        <a id="logo-name" href="/">Dev</a>
+        
+    <% } %>
+    
+    <div id="src-field">
+        <input id="src-box" name="fn" type="text">
+        <button type="button" id="src-btn">
+            <img src="/assets/img/search-icon.png" style="width: 30px;" alt="Search">
+        </button>
+    </div>
+
+    <nav class="navigation">
+        <% if (user) { %>
+
+            <a href="/logout">Sair</a>
+            <a href=<%= '/edit/' + String(user._id) %>  >Editar perfil</a>
+
+        <% } else { %>
+
+            <a href="/cadastrar">Cadastrar</a>
+            <a id="in">Entrar</a>
+
+        <% } %>
+    </nav>
+
+    <button class="m-btn" id="options"><img src="/assets/img/options.png" alt="options" id="options"></button>
+    
+</header>
+<div id="ext-opt"></div>
+<section class="content">
+    <div class="side-bar">
+
+        <h2>Filtros</h2>
+        <h3>Senioridade</h3>
+        <ul>
+            <li><input class="sr" type="checkbox" name="sr" value="Junior">Júnior</input></li>
+            <li><input class="sr" type="checkbox" name="sr" value="Pleno">Pleno</input></li>
+            <li><input class="sr" type="checkbox" name="sr" value="Senior">Sênior</input></li>
+        </ul>
+
+        <h3>Atuação</h3>
+        <ul>
+            <li><input class="ds" type="checkbox" name="ds" value="Front-end">Front-end</input></li>
+            <li><input class="ds" type="checkbox" name="ds" value="Back-end">Back-end</input></li>
+            <li><input class="ds" type="checkbox" name="ds" value="Full-stack">Full-stack</input></li>
+        </ul>
+
+        <h3>Stacks</h3>
+        <ul>
+            <li><input class="st" type="checkbox" name="st" value="HTML">HTML</input></li>
+            <li><input class="st" type="checkbox" name="st" value="CSS">CSS</input></li>
+            <li><input class="st" type="checkbox" name="st" value="JavaScript">JavaScript</input></li>
+            <li><input class="st" type="checkbox" name="st" value="PHP">PHP</input></li>
+            <li><input class="st" type="checkbox" name="st" value="Java">Java</input></li>
+            <li><input class="st" type="checkbox" name="st" value="C">C#</input></li>
+            <li><input class="st" type="checkbox" name="st" value="Python">Python</input></li>
+        </ul>
+
+    </div>
+
+    <div class="list-dev">
+
+        <ul class="ul-p"></ul>
+
+    </div>
+</section>
+
+<section id="pager-btns">
+    <button class="btn-pager btn-set" value="prev">Anterior</button>
+
+    <div class="pager-num" id="0"></div>
+
+    <button class="btn-pager btn-set" value="next">Proximo</button>
+</section>
+
+
+<div class="modal"></div>
+<div class="loading"></div>
+<%- include('includes/footer') %>

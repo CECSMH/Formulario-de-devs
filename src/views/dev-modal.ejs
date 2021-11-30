@@ -1,0 +1,32 @@
+<div id="modal-bg">
+    <div class="modal-content">
+        <section class="inner-modal-top">
+            
+            <button id="exit"><img src="/assets/img/exit.png" alt="Sair"></button> 
+            
+            <% if (user && user._id === String(dev._id)) { %>
+                <button id="edit"><img src="/assets/img/edit.png" alt="Editar"></button>
+            <% } %>
+
+        </section>
+
+        <section class="inner-modal-mid">
+            <label class="inner-modal-title">Nome completo: <span>
+                    <%= dev.fullName %>
+                </span></label>
+            <label class="inner-modal-title">Email: <span>
+                    <%= dev.email %>
+                </span></label>
+
+            <label class="inner-modal-title">
+                Desenvolverdor(a):
+                <span>
+                    <%= dev.devSide %> -- <%= dev.seniority %>
+                </span>
+            </label>
+
+            <label class="inner-modal-title">Stacks: <span style="word-break: break-all;"><%= dev.stacks.join(', ') %></span></label>
+            <label class="inner-modal-title">Experiência: <span style="word-break: break-all;"><%= dev.experience %></span></label>
+        </section>
+    </div>
+</div>

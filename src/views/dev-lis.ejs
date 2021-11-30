@@ -1,0 +1,26 @@
+<% for( var key in devs ) { %>
+
+    <li class="list-item" id=<%= devs[key]._id %>>
+        
+        <div class="tf" id=<%= devs[key]._id %>>
+            <span id="inner-li-name">
+            <%= devs[key].fullName.length > 35 ? 
+            devs[key].fullName.slice(0, 33) + '...': 
+            devs[key].fullName
+            %>
+            </span>
+                
+            <span id="inner-li-sr">
+            <%=`${devs[key].devSide} - ${devs[key].seniority}`%>
+            </span>
+        </div>
+        
+        <span id="inner-li-st">
+            <%= devs[key].stacks.join(', ') %>
+        </span>
+    </li>
+
+<% } %>
+<input class="pager" type="hidden" name="atual" value=<%= pager['atual'] %> >
+<input class="pager" type="hidden" name="pages" value=<%= pager['pages'] %> >
+<input class="pager" type="hidden" name="results" value=<%= pager['results'] %> >
