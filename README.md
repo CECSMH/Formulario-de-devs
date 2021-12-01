@@ -109,12 +109,10 @@ Se realizado o login com sucesso, será redirecionado(reload da pagina) para pag
 <li>Verbo get <code>baseUrl/logout</code>, Destroi a sessão atual (desloga o usuário).</li>
 <br>
 
-<li>Verbo get <code>baseUrl/edit/:id</code>, Direciona para a pagina de atualização de cadastro, deve receber o id do usuário como parâmetro, exemplo:<br>
-<code>baseUrl/edit/6166bf4145cba414db02c538</code>, o usuário deve estár logado para realizar esta ação.
+<li>Verbo get <code>baseUrl/edit</code>, Direciona para a pagina de atualização de cadastro, o usuário deve estár logado para realizar esta ação.
 </li>
 <br>
-<li>Verbo post <code>baseUrl/edit/:id</code>, Realiza a atualização do registro do usuário, deve receber o id do usuário como parâmetro, exemplo:<br>
-<code>baseUrl/edit/6166bf4145cba414db02c538</code> e também deve receber informações atraves do body da requisição, exemplo:<br>
+<li>Verbo post <code>baseUrl/edit</code>, Realiza a atualização do registro do usuário, deve receber informações atraves do body da requisição, exemplo:<br>
 
 ```
 {
@@ -127,7 +125,6 @@ e campos vazios serão ignorados.<br>
 O usuário deve estár logado para realizar esta ação, se atualizado com sucesso, será redirecionado para home.
 </li>
 <br>
-<li>Verbo get <code>baseUrl/del/:id</code>, Exclui a conta do usuário, deve receber o id do usuário como parâmetro, exemplo:<br>
-<code>baseUrl/del/6166bf4145cba414db02c538</code>, o usuário deve estár logado para realizar esta ação.</li>
+<li>Verbo get <code>baseUrl/del</code>, Exclui a conta do usuário, o usuário deve estár logado para realizar esta ação.</li>
 <br>
 </ul>
