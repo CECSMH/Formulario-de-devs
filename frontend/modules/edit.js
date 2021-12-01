@@ -4,14 +4,8 @@ import { errPrinter, fullScreenLoading } from "./printers";
 
 function edit() {
     const form = document.querySelector('.regForm');
-    const inputs = document.querySelectorAll('.it, .ds, .sr, .st')
-    const id = getId(window.location.pathname.split('/'));
+    const inputs = document.querySelectorAll('.it, .ds, .sr, .st');
     const oldObj = getInputData(inputs);
-
-    if (!id) {
-        alert('ocorreu um erro, tente novamente!');
-        window.location.href = '/';
-    };
 
     const main = async () => {
         let alerts = document.querySelectorAll('.alertSpan');
@@ -26,14 +20,14 @@ function edit() {
         if (Object.keys(finalObj).length !== 0) {
             finalObj.devSide && (finalObj.devSide = finalObj.devSide.join(''));
 
-            await postege(finalObj, id);
+            await postege(finalObj);
 
             return;
         };
         return;
     };
 
-    del(id);
+    del();
 
     form.addEventListener('submit', e => {
         e.preventDefault();
@@ -42,15 +36,14 @@ function edit() {
 };
 
 
-async function del(id) {
+function del() {
 
-    const delet = (id) => {
-        if (!id) return;
+    const delet = async () => {
         let confirma = window.confirm('Tem certeza que deseja deletar sua conta?');
 
         if (confirma) {
             fullScreenLoading(true);
-            axios.get(`/del/${id}`).then(resp => {
+            await axios.get('/del').then(resp => {
                 fullScreenLoading(false);
                 if (resp.status === 200) window.location.href = '/';
             }).catch(err => {
@@ -64,14 +57,14 @@ async function del(id) {
     };
 
     document.getElementById('del').addEventListener('click', e => {
-        delet(id);
+        delet();
     })
 };
 
 
-async function postege(obj, id) {
+async function postege(obj) {
     fullScreenLoading(true);
-    await axios.put(`/edit/${id}`, obj).then(resp => {
+    await axios.put('/edit', obj).then(resp => {
         fullScreenLoading(false);
         if (resp.status === 200) window.location.href = '/';
 
@@ -145,19 +138,6 @@ function emptyCleanUp(obj1) {
         if (!obj1[key] || obj1[key] === '') delete obj1[key];
     };
     return obj1;
-};
-
-
-function getId(arr) {
-    let id = null;
-    for (var i in arr) {
-        if (arr[i].match(/^[0-9a-fA-F]{24}$/)) {
-            id = arr[i];
-            break;
-        };
-        if (i > 6) break;
-    };
-    return id;
 };
 
 export { edit }

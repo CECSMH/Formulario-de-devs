@@ -15,11 +15,11 @@ router.get('/cadastrar', reg.index);
 router.get('/fetchAll/:type?', home.fetchAll);
 router.get('/fetchOne/:id/:type?', home.fetchOne);
 
-router.get('/del/:id', globals.isLoged, update.del);
+router.get('/del', globals.isLoged, update.del);
 
 router.post('/cadastrar', reg.reg);
-router.put('/edit/:id', globals.isLoged, update.update);
-router.get('/edit/:id', globals.isLoged, update.index);
+router.put('/edit', globals.isLoged, update.update);
+router.get('/edit', globals.isLoged, update.index);
 router.post('/login', login.logIn);
 router.get('/logout', login.logout);
 
