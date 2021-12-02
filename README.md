@@ -112,7 +112,7 @@ Se realizado o login com sucesso, será redirecionado(reload da pagina) para pag
 <li>Verbo get <code>baseUrl/edit</code>, Direciona para a pagina de atualização de cadastro, o usuário deve estár logado para realizar esta ação.
 </li>
 <br>
-<li>Verbo post <code>baseUrl/edit</code>, Realiza a atualização do registro do usuário, deve receber informações atraves do body da requisição, exemplo:<br>
+<li>Verbo put <code>baseUrl/edit</code>, Realiza a atualização do registro do usuário, deve receber informações atraves do body da requisição, exemplo:<br>
 
 ```
 {
@@ -125,6 +125,6 @@ e campos vazios serão ignorados.<br>
 O usuário deve estár logado para realizar esta ação, se atualizado com sucesso, será redirecionado para home.
 </li>
 <br>
-<li>Verbo get <code>baseUrl/del</code>, Exclui a conta do usuário, o usuário deve estár logado para realizar esta ação.</li>
+<li>Verbo delete <code>baseUrl/del</code>, Exclui a conta do usuário, o usuário deve estár logado para realizar esta ação.</li>
 <br>
 </ul>
