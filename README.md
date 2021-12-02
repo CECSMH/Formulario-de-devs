@@ -125,6 +125,6 @@ e campos vazios serão ignorados.<br>
 O usuário deve estár logado para realizar esta ação, se atualizado com sucesso, será redirecionado para home.
 </li>
 <br>
-<li>Verbo get <code>baseUrl/del</code>, Exclui a conta do usuário, o usuário deve estár logado para realizar esta ação.</li>
+<li>Verbo delete <code>baseUrl/del</code>, Exclui a conta do usuário, o usuário deve estár logado para realizar esta ação.</li>
 <br>
 </ul>
