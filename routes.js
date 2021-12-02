@@ -15,7 +15,7 @@ router.get('/cadastrar', reg.index);
 router.get('/fetchAll/:type?', home.fetchAll);
 router.get('/fetchOne/:id/:type?', home.fetchOne);
 
-router.get('/del', globals.isLoged, update.del);
+router.delete('/del', globals.isLoged, update.del);
 
 router.post('/cadastrar', reg.reg);
 router.put('/edit', globals.isLoged, update.update);

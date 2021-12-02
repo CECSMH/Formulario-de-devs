@@ -43,7 +43,7 @@ function del() {
 
         if (confirma) {
             fullScreenLoading(true);
-            await axios.get('/del').then(resp => {
+            await axios.delete('/del').then(resp => {
                 fullScreenLoading(false);
                 if (resp.status === 200) window.location.href = '/';
             }).catch(err => {
